@@ -9,7 +9,6 @@ import Orel from './img/Orel.png';
 import OrelAndReshka from './img/OrelAndReshka.png';
 import Reshka from './img/Reshka.png';
 
-//434b2fa3434b2fa3434b2fa3394327f9a74434b434b2fa31e31718126b5bbed45870c43
 class App extends React.Component {
 
 	constructor(props) {
@@ -20,7 +19,7 @@ class App extends React.Component {
 			fetchedUser: null,
 			popout: null,
 			post: null,
-			access_tok: null
+			access_token: '434b2fa3434b2fa3434b2fa3394327f9a74434b434b2fa31e31718126b5bbed45870c43'
 		};
 	}
 	componentDidMount() {
@@ -31,9 +30,6 @@ class App extends React.Component {
 					break;
 				case 'VKWebAppCallAPIMethodResult':
 					this.setState({ post: e.detail.data });
-					break;
-				case 'VKWebAppAccessTokenReceived':
-					this.setState({ access_tok: e.detail.data });
 					break;
 				default:
 					console.log(e.detail.type);
@@ -364,9 +360,11 @@ class App extends React.Component {
 			connect.send("VKWebAppCallAPIMethod", {"method": "wall.getReposts", 
 			"params": {"owner_id": "-71729358",
 			"post_id": "10196403",
-			"v":"5.101", 
-			"access_token": this.state.access_tok.access_token }});
+			"v":"5.101",
+			"access_token": "434b2fa3434b2fa3434b2fa3394327f9a74434b434b2fa31e31718126b5bbed45870c43" }});
+			if(this.state.post != "undefined"){
 			document.getElementById("RanNum").innerHTML= this.state.post.response.profiles[0].id;
+			}
 		}
 }
 
