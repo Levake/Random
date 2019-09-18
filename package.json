@@ -2,10 +2,13 @@
   "name": "Random",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://Levake.github.io/Random/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10888 react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +25,15 @@
     "babel-eslint": "^9.0.0",
     "chalk": "^2.4.2",
     "core-js": "^3.1.4",
+    "gh-pages": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
