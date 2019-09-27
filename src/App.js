@@ -1,6 +1,6 @@
 import React from 'react';
 import connect from '@vkontakte/vk-connect';
-import { Panel, ListItem,Input, Radio, FormLayoutGroup, InfoRow,Select, Progress, Button, HeaderButton, Group, Div, Avatar, PanelHeader, View, List, Cell} from '@vkontakte/vkui';
+import { Panel, platform,Input, Radio, FormLayoutGroup, InfoRow,Select, Progress, Button, HeaderButton, Group, Div, Avatar, PanelHeader, View, List, Cell} from '@vkontakte/vkui';
 import '@vkontakte/vkui/dist/vkui.css';
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon24Users from '@vkontakte/icons/dist/24/users';
@@ -11,6 +11,15 @@ import Reshka from './texture/reshka.png';
 import NumIC from '@vkontakte/icons/dist/24/forward_10';
 import StrIC from '@vkontakte/icons/dist/24/more_horizontal';
 import PassIC from '@vkontakte/icons/dist/24/privacy';
+import KosIC from '@vkontakte/icons/dist/24/services';
+
+import KosNoN from './texture/kos/kosNoN.png';
+import Kos1 from './texture/kos/kos1.png';
+import Kos2 from './texture/kos/kos2.png';
+import Kos3 from './texture/kos/kos3.png';
+import Kos4 from './texture/kos/kos4.png';
+import Kos5 from './texture/kos/kos5.png';
+import Kos6 from './texture/kos/kos6.png';
 
 class App extends React.Component {
 
@@ -26,8 +35,11 @@ class App extends React.Component {
 			CheckSize: '',
 			access_token: 'XXXXXXXX',
 			DefSumbol: 'QWERTYUIOPLKJHGFDSAZXCVBNM1234567890qwertyuioplkjhgfdsazxcvbnm',
+			ValueClickGameKosti: 0,
 		};
 		this.PassGeneratorUnTimer = this.PassGeneratorUnTimer.bind(this);
+		this.OS = this.OS.bind(this);
+		this.GameKosti = this.GameKosti.bind(this);
 	}
 	componentDidMount() {
 		connect.subscribe((e) => {
@@ -40,35 +52,32 @@ class App extends React.Component {
 			}
 		});
 		connect.send('VKWebAppGetUserInfo', {});
+
+
 	}
 
 	render() {
 		return (
 		<View activePanel={this.state.activePanel}>
-
-			<script>
-			Orel = new Image();
-			Orel.src="./texture/orel.png";
-
-			OrelAndReshka = new Image();
-			OrelAndReshka.src="./texture/orelandreshka.png";
-
-			Reshka = new Image();
-			Reshka.src="./texture/reshka.png";
-			</script>
-
 			<Panel id='home'>
 			<PanelHeader>Главная</PanelHeader>
 			{this.state.fetchedUser &&
-			<Group title="Привествуем в Swanflow Random" align='center'>
+			<Group title="Привествуем в Random" align='center'>
 					{this.state.fetchedUser.photo_200 ? <Avatar src={this.state.fetchedUser.photo_200}/> : null}
 				{`${this.state.fetchedUser.first_name} ${this.state.fetchedUser.last_name}`}
 			</Group>}
+
 			<Group title="Навигация">
 
 				<Div>
 					<Button size="xl" level="2" before={<OrelAndReshkaIC/>} onClick={ () => this.setState({ activePanel: 'Heads_And_Tails' }) } >
 						Орёл и решка
+					</Button>
+				</Div>
+
+				<Div>
+					<Button size="xl" level="2" before={<KosIC/>} onClick={ () => this.setState({ activePanel: 'KostiPanel' }) } >
+						Кости
 					</Button>
 				</Div>
 
@@ -92,10 +101,9 @@ class App extends React.Component {
 
 			</Group>
 
-			<Group title="Разработчики" description="by CrOfGames and Swanflow">
-
+			<Group title="Разработчики" description="by CrOfGames & Swanflow">
 				<Div>
-					<Button size="xl" level="2" before={<Icon24Users/>} onClick={ () => this.setState({ activePanel: 'ListCreatePeaple' }) } >
+					<Button size="xl" level="2" before={<Icon24Users/>} onClick={this.OS} >
 						Обратная связь
 					</Button>
 				</Div>
@@ -157,7 +165,7 @@ class App extends React.Component {
         			</Cell>
         		</Div>
 
-        		<Div>
+        		<Div id="money">
         			<Cell before={<Avatar 
         				src='https://sun9-23.userapi.com/c850120/v850120058/4ae63/aWa_jIJwVpI.jpg?ava=1'/>} 
         				href='https://vk.com/crofgames?w=app6795545_-172310220'
@@ -203,7 +211,7 @@ class App extends React.Component {
           			</Div>
 
           			<Div align='center'>
-          				<Avatar size={200} id="money" src='this.src=OrelAndReshka.src'/>
+          				<Avatar size={200} id="money" src={OrelAndReshka}/>
           			</Div>
 
 
@@ -211,15 +219,15 @@ class App extends React.Component {
 
 
     				<Div>
-    				<Button size="xl" level="tertiary" id="Starting" onClick={this.RandOR}>Подкинуть</Button>
+    				<Button size="xl" level="tertiary" id="Starting" onClick={this.RandOR}>Испытать удачу</Button>
      				</Div>
 
     			</Group>
 
-    			<Group description="by CrOfGames and Swanflow">
+    			<Group description="by CrOfGames & Swanflow">
       				<Div>
       				<p>Как пользоваться?</p>
-      				<p>Просто нажми на "Подкинуть" и узнай какая удача :)</p>
+      				<p>Просто нажмите на "Испытать удачу".</p>
 					</Div>
 				</Group>
 
@@ -265,18 +273,18 @@ class App extends React.Component {
     				</Div>
 
     				<Div>
-    				<Button size="xl" level="tertiary" id="StartingRandom" onClick={this.RandNum}>Начать</Button>
+    				<Button size="xl" level="tertiary" id="StartingRandom" onClick={this.RandNum}>Генерировать</Button>
      				</Div>
 
     			</Group>
 
-    			<Group description="by CrOfGames and Swanflow">
+    			<Group description="by CrOfGames & Swanflow">
       				<Div>
       				<p>Как пользоваться?</p>
-      				<p>Тебе нужно ввести 2 числа</p>
-      				<p>Первое - от скольки будет рандом</p>
-      				<p>Второе - до скольки будет.</p> 
-      				<p>И смотри результат.</p>
+      				<p>Вам нужно ввести 2 числа:</p>
+      				<p>1: начальное число.</p>
+      				<p>2: конечное число.</p> 
+      				<p>Далее нужно нажать кнопку "Генерировать".</p>
 					</Div>
 				</Group>
 
@@ -342,13 +350,68 @@ class App extends React.Component {
 
     			</Group>
 
-    			<Group description="by CrOfGames and Swanflow">
+    			<Group description="by CrOfGames & Swanflow">
       				<Div>
       				<p>Как пользоваться?</p>
       				<p>Тут всё просто.</p>
-      				<p>Ты можешь выбрать символы сервиса или же написать свои.</p>
+      				<p>Вы можете выбрать символы сервиса или же написать свои.</p>
       				<p>Зачем они? Что бы было из чего генерировать пароль.</p> 
-      				<p>Следом тебе нужно выбрать длину и нажать "Генерировать" и будет тебе пароль :)</p>
+      				<p>Следом Вам нужно выбрать длину и нажать "Генерировать".</p>
+					</Div>
+				</Group>
+
+	 		</Panel>
+
+	 		<Panel id="KostiPanel">
+    			<PanelHeader
+            		theme="light"
+            		left={<HeaderButton id="backs2" onClick={() => this.setState({ activePanel: 'home' })}>{<Icon24Back/>}</HeaderButton>}
+        			>
+      				Кости
+    			</PanelHeader>
+
+   				<Group>
+    				<Div align='center'>
+    				<a id="StatePlayer">Игра не началась</a>
+          					<Avatar size={200} type="app" id="KosGame" src={KosNoN}/>
+          			</Div>
+          		</Group>
+
+				<Group title="Настройка">
+          			
+       				<a id="VisHisList">Число игроков:
+       					<Select id="ListPlayer">
+		              		<option value="player_1">1 игрок</option>
+              				<option value="player_2">2 игрока</option>
+              				<option value="player_3">3 игрока</option>
+              				<option value="player_4">4 игрока</option>
+              				<option value="player_5">5 игроков</option>
+              				<option value="player_6">6 игроков</option>
+              				<option value="player_7">7 игроков</option>
+              				<option value="player_8">8 игроков</option>
+            			</Select>
+            		</a>
+
+    				<Div>
+    				<Button size="xl" level="0" id="StartingGame" onClick={this.GameKosti}>Подкинуть</Button>
+     				</Div>
+
+    			</Group>
+
+    			<Group title="Результат будет тут" id="ListPlayerWins">
+          			
+
+
+    			</Group>
+
+    			<Group description="by CrOfGames & Swanflow">
+      				<Div>
+      				<p>Как пользоваться?</p>
+      				<p>Тут всё просто.</p>
+      				<p>Укажите кол-во игроков,</p>
+      				<p>И нажмите на кнопку "Подкинуть".</p> 
+      				<p>За всех игроков подкидывается автоматически.</p>
+      				<p>У кого что выпало будет показано ниже кнопки "Подкинуть"</p>
 					</Div>
 				</Group>
 
@@ -380,7 +443,7 @@ class App extends React.Component {
 
     			</Group>
 
-    			<Group description="by CrOfGames and Swanflow">
+    			<Group description="by CrOfGames & Swanflow">
       				<Div>
       				<p>Как пользоваться?</p>
       				<p>Для начала Вы должны ввести в поле слова, из которых нужно выбрать случайное слово.</p>
@@ -427,11 +490,11 @@ class App extends React.Component {
   				number = Math.round(0 + Math.random() * (100 - 0));
   				if(number % 2){
   					document.getElementById("text").innerHTML="Орёл";
-  					document.getElementById("money").src= this.src=Orel.src;
+  					document.getElementById("money").src=Orel;
   				}
   				else{
   					document.getElementById("text").innerHTML="Решка";
-  					document.getElementById("money").src= this.src=Reshka.src;
+  					document.getElementById("money").src=Reshka;
   				}
 
   					if(tick === 10){
@@ -444,33 +507,41 @@ class App extends React.Component {
 	}
 
 
-
-
-
-
 	RandNum(){
-		document.getElementById("StartingRandom").style.visibility = 'hidden';
-		document.getElementById("backs2").style.visibility = 'hidden';
 		let number = 0;
 		let tick = 0;
 
 		let InNum = document.getElementById("InNum").value;
 		let OutNum = document.getElementById("OutNum").value;
 
+		if(InNum === "")
+  			{
+  				alert("Введите начальное число.");
+  				return;
+  			}
+
+  		if(OutNum === "")
+  			{
+  				alert("Введите конечное число.");
+  				return;
+  			}
+
+  		document.getElementById("StartingRandom").style.visibility = 'hidden';
+		document.getElementById("backs2").style.visibility = 'hidden';
+
 		let pgogr = 0;
 		number = Math.round(InNum + Math.random() * (OutNum - InNum));
-
 
   		let timerRDNum = setInterval(function randomick()
   			{
   				tick++;
   				number = Math.round(parseInt(InNum) + (Math.random() * (OutNum - InNum)));
-  				document.getElementById("RanNum").innerHTML=number;
+  				document.getElementById("RanNum").innerHTML= number;
 
   				pgogr++;
   				document.getElementById("ProrgsNum").style='width: ' + pgogr + '%;';
 
-  					if(tick === 100){
+  					if(tick >= 100){
   						document.getElementById("StartingRandom").style.visibility = 'visible';
 						document.getElementById("backs2").style.visibility = 'visible';
   						clearInterval(timerRDNum);
@@ -495,6 +566,115 @@ class App extends React.Component {
 				document.getElementById("InputEn").style.display = 'inline';
 			}
 		}
+
+		GameKosti()
+		{
+			let idPlay = document.getElementById("ListPlayer").options[document.getElementById("ListPlayer").selectedIndex].value;
+			
+			let sizePlay = idPlay.slice(idPlay.length - 1,idPlay.length);
+
+			let tick = 0;
+
+			let number = 0;
+
+			let imgs = 0;
+
+			let Players = [];
+			let PlayersID = [];
+			let player = 1;
+
+				document.getElementById("ListPlayerWins").innerHTML="";
+
+			document.getElementById("StartingGame").style.visibility = 'hidden';
+			document.getElementById("backs2").style.visibility = 'hidden';
+
+			let timerOneGame = setInterval(function randomick()
+  			{
+  				tick++;
+
+  				document.getElementById("StatePlayer").innerHTML= "Подкидывает " + player + "-й игрок";
+
+  				number = Math.round(1 + (Math.random() * (6 - 1)));
+  			    switch(number)
+  			    {
+  			    case 1:
+  				document.getElementById("KosGame").src=Kos1;
+  				break;
+
+  				case 2:
+  				document.getElementById("KosGame").src=Kos2;
+  				break;
+
+  				case 3:
+  				document.getElementById("KosGame").src=Kos3;
+  				break;
+
+  				case 4:
+  				document.getElementById("KosGame").src=Kos4;
+  				break;
+
+  				case 5:
+  				document.getElementById("KosGame").src=Kos5;
+  				break;
+
+  				case 6:
+  				document.getElementById("KosGame").src=Kos6;
+  				break;
+  				}
+
+  				if(tick % 20 === 0)
+  				{
+  					Players[player - 1] = number;
+  					PlayersID[player - 1] = 1;
+
+  					var picHolder = document.getElementById("ListPlayerWins");
+					document.getElementById("ListPlayerWins").title="Результат";
+					var img = document.createElement("div");
+					img.innerHTML = "<div class=\"Group Group--android\" align=\"center\"><div class=\"Header Header--android Header--level-secondary\"><div class=\"Header__in\"><div class=\"Header__content\">" + player + "-й игрок" + "</div></div></div><div class=\"Group__content\"><div class=\"Div Div--android\"><img style=\"width: 100px; height: 100px; border-radius: 20px;\" class=\"Avatar__img\" src="+ document.getElementById("KosGame").src +" /></div></div></div>";
+					picHolder.appendChild(img);
+
+  					player++;
+  				}
+
+  				if(tick === 20 * sizePlay){
+  					player = 0;
+  					document.getElementById("StartingGame").style.visibility = 'visible';
+					document.getElementById("backs2").style.visibility = 'visible';
+
+					
+ 					let max = 0;
+  					for (let i = 0; i < Players.length; ++i) {
+   				   		if (Players[i] > max) max = Players[i];
+ 					}
+
+ 					let Pl = "";
+ 					for (let i = 0; i < Players.length; ++i) {
+   				   		if (Players[i] === max) Pl = Pl + "" + (i + 1);
+ 					}
+
+ 					if(Pl.length === 1)
+ 					{
+ 						document.getElementById("StatePlayer").innerHTML= "Победил " + Pl + "-й игрок";
+ 					}
+
+
+ 					if(Pl.length > 2)
+ 					{
+ 						let str = "Ничья между: "
+ 						for (let i = 0; i < Pl.length; ++i) {
+   				   		str = str + " " + Pl[i] + "-м";
+ 						}
+ 						document.getElementById("StatePlayer").innerHTML= str + " игроком";
+ 					}								
+
+					clearInterval(timerOneGame);
+  				}
+
+  			}, 100);
+			
+		}
+
+
 
 		PassGeneratorUnTimer()
 		{
@@ -580,6 +760,30 @@ class App extends React.Component {
 		}
 
 
+		OS()
+		{
+			this.setState({ activePanel: 'ListCreatePeaple' });
+			let osname = platform();
+
+			let OSCheck = setInterval(function randomick()
+  			{
+  				if(document.getElementById("money").style != null){
+  				if(osname === "ios")
+				{
+					document.getElementById("money").style.display = 'none'
+				}
+				else
+				{
+					document.getElementById("money").style.display = 'inline'
+				}
+
+  					clearInterval(OSCheck);
+  				}
+
+  			}, 1);
+		}
+
+
 		StringGenerate()
 		{
 			let StringAllInput = "Def " + document.getElementById("StringAllInput").value + " Def";
@@ -588,18 +792,18 @@ class App extends React.Component {
 			let tick = 0;
 			let pos = 0;
 
-  			if(StringAllInput === "")
+  			if(StringAllInput.length === 8)
   			{
   				alert("Введите слова их которых будет выбрано случайное.");
   				return;
   			}
 
-  			if(StringAllInput.indexOf(" ") === -1){
+  			if(StringAllInput.slice(4 , StringAllInput.length - 4).indexOf(" ") === -1){
   				alert("Вы ввели только одно слово, или не поставили пробел");
   				return;
   			}
 
-  			if(StringAllInput.lastIndexOf(" ") === StringAllInput.length - 1){
+  			if(StringAllInput.slice(StringAllInput.length - 5 , StringAllInput.length - 4) === " "){
   				alert("Уберите в конце пробел");
   				return;
   			}
