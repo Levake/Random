@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/Random/static/media/kos3.8313fcaa.png"
   },
   {
-    "revision": "e0e0faf3df997ac42845",
+    "revision": "30cbec89f63867b96e9f",
     "url": "/Random/static/css/main.2b441d53.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/Random/static/media/orelandreshka.cf9f3c67.png"
   },
   {
-    "revision": "d7b46296e11d93fc55fa",
-    "url": "/Random/static/js/2.dc160cf3.chunk.js"
+    "revision": "8d82c443fc5557a5a477",
+    "url": "/Random/static/js/2.5c751889.chunk.js"
   },
   {
     "revision": "e7e8a02d000582f7d1f0e350be460a0c",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/Random/static/media/kos2.2c3f5fdd.png"
   },
   {
-    "revision": "e0e0faf3df997ac42845",
-    "url": "/Random/static/js/main.9a83aa7e.chunk.js"
+    "revision": "30cbec89f63867b96e9f",
+    "url": "/Random/static/js/main.5854c3b1.chunk.js"
   },
   {
     "revision": "e6ba8effa1e17dd15abdb50d458efa00",
@@ -56,11 +56,11 @@ self.__precacheManifest = [
     "url": "/Random/static/media/reshka.271608c7.png"
   },
   {
-    "revision": "d7b46296e11d93fc55fa",
+    "revision": "8d82c443fc5557a5a477",
     "url": "/Random/static/css/2.8c390961.chunk.css"
   },
   {
-    "revision": "b4c82c3a2fdae92680f9bce205782bd1",
+    "revision": "4b2d717bbdeb3ea071bceb147f4d836e",
     "url": "/Random/index.html"
   }
 ];
