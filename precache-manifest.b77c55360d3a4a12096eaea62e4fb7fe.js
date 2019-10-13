@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "8313fcaa84224006783d40c211349ef3",
-    "url": "/Random/static/media/kos3.8313fcaa.png"
+    "revision": "2c3f5fdd6ecddbdbdc0d15a4b1e520ee",
+    "url": "/Random/static/media/kos2.2c3f5fdd.png"
   },
   {
-    "revision": "15ba4c1f5c781bf239bf",
-    "url": "/Random/static/css/main.7e4055b5.chunk.css"
+    "revision": "5a3b0b8f099960c0f167",
+    "url": "/Random/static/css/main.f0a06b83.chunk.css"
   },
   {
     "revision": "25d5cccbb1b3dbf0a8c6",
@@ -16,8 +16,12 @@ self.__precacheManifest = [
     "url": "/Random/static/media/orelandreshka.cf9f3c67.png"
   },
   {
-    "revision": "a5bcc8d428a539644813",
-    "url": "/Random/static/js/2.29b89c3d.chunk.js"
+    "revision": "f288f033e50622f6b6c2",
+    "url": "/Random/static/js/2.2245d93d.chunk.js"
+  },
+  {
+    "revision": "25ab035e8e031eebad27c77c9fe14827",
+    "url": "/Random/static/media/schasliviibilet.25ab035e.png"
   },
   {
     "revision": "e7e8a02d000582f7d1f0e350be460a0c",
@@ -28,12 +32,12 @@ self.__precacheManifest = [
     "url": "/Random/static/media/kos1.81320fcd.png"
   },
   {
-    "revision": "2c3f5fdd6ecddbdbdc0d15a4b1e520ee",
-    "url": "/Random/static/media/kos2.2c3f5fdd.png"
+    "revision": "5a3b0b8f099960c0f167",
+    "url": "/Random/static/js/main.524d03ad.chunk.js"
   },
   {
-    "revision": "15ba4c1f5c781bf239bf",
-    "url": "/Random/static/js/main.45d38f16.chunk.js"
+    "revision": "8313fcaa84224006783d40c211349ef3",
+    "url": "/Random/static/media/kos3.8313fcaa.png"
   },
   {
     "revision": "e6ba8effa1e17dd15abdb50d458efa00",
@@ -56,11 +60,11 @@ self.__precacheManifest = [
     "url": "/Random/static/media/reshka.271608c7.png"
   },
   {
-    "revision": "a5bcc8d428a539644813",
+    "revision": "f288f033e50622f6b6c2",
     "url": "/Random/static/css/2.8ac83fe0.chunk.css"
   },
   {
-    "revision": "a8fd58c57f33408a6bd0dc8adfb607a5",
+    "revision": "b299203f4482547ba212aa84298feac8",
     "url": "/Random/index.html"
   }
 ];

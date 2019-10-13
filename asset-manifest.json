@@ -1,17 +1,17 @@
 {
-  "main.css": "/Random/static/css/main.7e4055b5.chunk.css",
-  "main.js": "/Random/static/js/main.45d38f16.chunk.js",
-  "main.js.map": "/Random/static/js/main.45d38f16.chunk.js.map",
+  "main.css": "/Random/static/css/main.f0a06b83.chunk.css",
+  "main.js": "/Random/static/js/main.524d03ad.chunk.js",
+  "main.js.map": "/Random/static/js/main.524d03ad.chunk.js.map",
   "runtime~main.js": "/Random/static/js/runtime~main.ed470760.js",
   "runtime~main.js.map": "/Random/static/js/runtime~main.ed470760.js.map",
   "static/css/2.8ac83fe0.chunk.css": "/Random/static/css/2.8ac83fe0.chunk.css",
-  "static/js/2.29b89c3d.chunk.js": "/Random/static/js/2.29b89c3d.chunk.js",
-  "static/js/2.29b89c3d.chunk.js.map": "/Random/static/js/2.29b89c3d.chunk.js.map",
+  "static/js/2.2245d93d.chunk.js": "/Random/static/js/2.2245d93d.chunk.js",
+  "static/js/2.2245d93d.chunk.js.map": "/Random/static/js/2.2245d93d.chunk.js.map",
   "index.html": "/Random/index.html",
-  "precache-manifest.b0783fc1c070cceb087a6fff2a690de0.js": "/Random/precache-manifest.b0783fc1c070cceb087a6fff2a690de0.js",
+  "precache-manifest.b77c55360d3a4a12096eaea62e4fb7fe.js": "/Random/precache-manifest.b77c55360d3a4a12096eaea62e4fb7fe.js",
   "service-worker.js": "/Random/service-worker.js",
   "static/css/2.8ac83fe0.chunk.css.map": "/Random/static/css/2.8ac83fe0.chunk.css.map",
-  "static/css/main.7e4055b5.chunk.css.map": "/Random/static/css/main.7e4055b5.chunk.css.map",
+  "static/css/main.f0a06b83.chunk.css.map": "/Random/static/css/main.f0a06b83.chunk.css.map",
   "static/media/kos1.png": "/Random/static/media/kos1.81320fcd.png",
   "static/media/kos2.png": "/Random/static/media/kos2.2c3f5fdd.png",
   "static/media/kos3.png": "/Random/static/media/kos3.8313fcaa.png",
@@ -21,5 +21,6 @@
   "static/media/kosNoN.png": "/Random/static/media/kosNoN.e7e8a02d.png",
   "static/media/orel.png": "/Random/static/media/orel.197537e0.png",
   "static/media/orelandreshka.png": "/Random/static/media/orelandreshka.cf9f3c67.png",
-  "static/media/reshka.png": "/Random/static/media/reshka.271608c7.png"
+  "static/media/reshka.png": "/Random/static/media/reshka.271608c7.png",
+  "static/media/schasliviibilet.png": "/Random/static/media/schasliviibilet.25ab035e.png"
 }
